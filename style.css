@@ -1,0 +1,82 @@
+body {
+    background-image: url('img/westeros.png');
+    background-size: cover; /* Cambiado a 'cover' para mejor ajuste */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0; /* Elimina el margen por defecto del body */
+    color: #fff;
+    text-align: center;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.main-header img {
+    margin-bottom: 20px;
+   margin-top: -10px;
+    
+  
+}
+
+.intro-text {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    font-weight: 700;
+    margin-top: 60px;
+    font-style: italic; /* Añade esta línea para hacer el texto cursiva */
+}
+.character-selection {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.hero-card, .villain-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.hero-card:hover, .villain-card:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+.character-selection img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid;
+    margin-bottom: 10px;
+    margin-top: 70px;
+}
+
+.hero-card img {
+    border-color: #4e5153; /* Borde azul para héroes */
+}
+
+.villain-card img {
+    border-color: #000000; /* Borde rojo para antagonistas */
+}
+
+.character-selection span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}

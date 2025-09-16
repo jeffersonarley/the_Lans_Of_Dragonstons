@@ -1,30 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Lands of Dragonstone</title>
+    <title>Game of Thrones</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
 </head>
 <body>
+    
+    <video autoplay muted id="background-video">
+        <source src="img/weste.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+    </video>
+
     <div class="page-container">
         <header class="main-header">
-            <img src="img/titulo .png" alt="The Lands of Dragonstone">
+            <nav class="header-menu">
+                <ul class="nav-bar">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link home-button">
+                            <i class="fas fa-home"></i>
+                            Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="icon shield"></i>
+                            heroes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="icon dragon"></i>
+                            antagonistas
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </header>
 
-        <main class="content-wrapper">
-            
-            <div class="character-selection">
-                <a href="#" class="hero-card">
-                    <img src="img/heroes.png" alt="Héroes">
-                    <span>Héroes</span>
-                </a>
-                <a href="#" class="villain-card">
-                    <img src="img/antagonistas.png" alt="Antagonistas">
-                    <span>Antagonistas</span>
-                </a>
+        <div class="title-container">
+            <img src="img/titulo .png" alt="Título de Westeros">
+        </div>
+
+        <main>
+            <div class="medieval-text">
+                An ancient prophecy unfolds, splitting the land of Elyndor.
+                Choose your allegiance: stand with noble guardians of light
+                embrace or end the shadowy legions of chaos.
+                Your destiny awaits.
             </div>
         </main>
     </div>
+
 </body>
 </html>

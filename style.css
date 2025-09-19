@@ -5,8 +5,29 @@ body {
     text-align: center;
 }
 
+.page-container {
+  /* Set initial state */
+  opacity: 0; 
+  
+  /* Apply the animation */
+  animation-name: fade-in;
+  animation-duration: 2s; /* Adjust as needed */
+  animation-delay: 3s; /* The 5-second delay you requested */
+  animation-fill-mode: forwards;
+}
+
+/* Define the keyframes for the animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 #background-video {
-    /* Estilos para el video de fondo */
+   
     width: 100vw;
     height: 100vh;
     object-fit: cover;
@@ -141,4 +162,50 @@ body {
     border-radius: 10px;
     margin: -60px auto;
     max-width: 600px;
+}
+
+ 
+
+/* Contenedor para centrar los botones */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espacio entre los botones */
+    margin-top: 100px; /* Ajusta el espacio superior para separarlo del texto */
+    z-index: 10;
+}
+
+/* Estilos base para los botones */
+.medieval-button {
+    font-family: 'Uncial Antiqua', cursive;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Efecto hover para los botones */
+.medieval-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Estilos específicos para el botón de Héroes */
+.hero-button {
+    background-color: #2e1a52; /* Un color verde noble */
+    border: 2px solid #2f1b5f;
+}
+
+/* Estilos específicos para el botón de Antagonistas */
+.antagonist-button {
+    background-color: #680c0c; /* Un color rojo oscuro */
+    border: 2px solid #9e3737;
 }

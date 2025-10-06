@@ -98,6 +98,7 @@ body {
     padding: 0;
     /* KEY CHANGE: Establishes a positioning context for the text layer */
     position: relative; 
+    box-shadow: #191729 100px 0 0 0 inset;
 }
 
 .fond img {

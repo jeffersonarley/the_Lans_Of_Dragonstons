@@ -1,7 +1,7 @@
 /* General Reset and Body Setup */
 body {
     font-family: Arial, sans-serif;
-    background-color: #631414;
+    background-color: hsl(0, 48%, 42%);
     margin: 0;
 }
 
@@ -96,18 +96,23 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    /* KEY CHANGE: Establishes a positioning context for the text layer */
     position: relative; 
 }
 
 .fond img {
     width: 100%;
     height: 500px;
-    /* Ensures the image fills the space without distortion */
     object-fit: cover; 
     display: block; 
+    
+    /* === CAMBIOS PARA LA SOMBRA INTENSA === */
+    filter: brightness(0.7); /* Oscurece un poco la imagen base */
+    box-shadow: 
+        /* Sombra negra grande y extendida para un efecto dramático */
+        0 0 100px 80px rgba(0, 0, 0, 0.9) inset, 
+        /* Sombra más enfocada en los bordes para un efecto de viñeta */
+        0 0 50px 30px rgba(0, 0, 0, 0.8) inset;
 }
-
 /* --- Medieval Text Styling (The Text Layer) --- */
 .medieval-text {
     font-family: 'Uncial Antiqua', cursive; 
@@ -135,7 +140,7 @@ body {
      font-family: 'Uncial Antiqua', cursive; 
     font-size: 1.5rem;
     line-height: 1.6;
-    color: #292424c0;
+    color: #141414c0;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
     background-image: url('img/parchment-background.png');
     background-size: cover;
@@ -210,6 +215,24 @@ body {
 .title-container img {
     max-width: 100%;
     height: auto;
+}
+.medieval-button-hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    background-image: url('img/casita.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    position: relative;
+    transition: transform 0.3s ease;
+    margin-left: 20px; /* Space between buttons */
 }
 
 /* --- Responsive Styles (Kept as is) --- */

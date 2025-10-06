@@ -207,5 +207,5 @@ body {
 /* Estilos específicos para el botón de Antagonistas */
 .antagonist-button {
     background-color: #680c0c; /* Un color rojo oscuro */
-    border: 2px solid #9e3737;
+    border: 2px solid hsl(0, 48%, 42%);
 }

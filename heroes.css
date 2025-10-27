@@ -1,3 +1,8 @@
+/* 📌 Añadido para prevenir que el padding y border rompan el layout (MUY RECOMENDADO) */
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-image: url('https://wallpapers.com/images/hd/rpg-games-1920-x-1080-wallpaper-b1gy2orksxdqmmjw.jpg');
     background-size: cover;
@@ -56,9 +61,10 @@ body {
     transition: transform 0.3s ease;
 }
 
+/* 🚀 CORRECCIONES DE ESPACIO */
 .her {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 0; /* Eliminado el margen excesivo */
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -70,7 +76,8 @@ body {
     width: 90%;
     height: auto;
     object-fit: contain;
-    margin-top:4px;
+    margin: 0; /* Eliminado el margen residual */
+    display: block; /* Eliminado el espacio residual de la imagen */
 }
 
 .nav-link:hover {
@@ -107,7 +114,7 @@ body {
     margin: 0;
     padding: 0;
     position: relative; 
-    min-height: 250px;
+    min-height: 50px;
 }
 
 .fond img {
@@ -142,7 +149,7 @@ body {
     font-size: 1.5rem;
     line-height: 1.6;
     color: #3f3636c0;
-    text-shadow: 1px 1px 2px rgba(240, 40, 40, 0.7);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
     background-image: url('img/parchment-background.png');
     background-size: cover;
     padding: 20px;
@@ -154,32 +161,31 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 50;
-    margin: 0;  
+    margin: 0; 
 }
 
+/* 🚀 CORRECCIONES DE ESPACIO */
 .gallery-container {
-    margin: 20px auto; 
+    margin: 0 auto; /* Eliminado el margen superior */
     display: flex;
     flex-wrap: wrap; 
     gap: 60px; 
     justify-content: center; 
     max-width: 1200px; 
-    padding: 20px; 
-    /* Se ha corregido el margen superior a un valor positivo, asumiendo que el texto medieval 
-       ya ha ocupado el espacio con el min-height de .fond */
-    margin-top: 50px;
+    padding: 0 20px 20px 20px; /* Eliminado el padding superior */
 }
 
-/* --- ESTILOS MEJORADOS PARA LAS CARDS --- */
+/* --- ESTILOS PARA LAS CARDS (MODIFICADO) --- */
 .card {
-    background-color: #333; /* Fondo oscuro para contraste */
+    background-color: #333; 
     border-radius: 10px;
-    /* Borde dorado sutil */
     border: 1px solid #c5aeae; 
-    /* Sombra de profundidad */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 255, 255, 0.1); 
+    
+    /* 📌 CLAVE: Posicionamiento relativo para el overlay */
+    position: relative; 
+    
     overflow: hidden; 
-    /* Aceleramos la transición para el nuevo efecto de brillo */
     transition: all 0.4s ease-in-out; 
     width: 250px; 
     text-align: center;
@@ -187,31 +193,32 @@ body {
 }
 
 .card:hover {
-    /* Efecto de elevación */
     transform: translateY(-8px); 
-    /* Sombra dorada brillante al hacer hover */
     box-shadow: 
         0 12px 25px rgba(0, 0, 0, 0.7), 
         0 0 20px #ffd700; 
+}
+
+/* Oculta el título normal cuando el overlay aparece */
+.card:hover h3 {
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .card img {
     width: 100%;
     height: 200px;
     object-fit: cover; 
-    /* Un pequeño filtro para que las imágenes se vean más "antiguas" */
     filter: brightness(0.9) contrast(1.1);
     transition: filter 0.4s ease;
 }
 
 .card:hover img {
-    /* Al hacer hover, la imagen se vuelve más clara */
     filter: brightness(1) contrast(1);
 }
 
 .card h3 {
     margin: 15px 0;
-    /* Color blanco o ligeramente dorado para el texto */
     color: #ffd700; 
     font-size: 1.1em;
     font-weight: bold;
@@ -219,18 +226,60 @@ body {
 /* ---------------------------------------------------- */
 
 
-.title-container {
-    margin-top: 20px; 
+/* 📌 NUEVOS ESTILOS PARA EL OVERLAY (Efecto Deslizante) */
+.card-overlay {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo más oscuro para el texto */
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box; 
+    
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+
+    /* 📌 CLAVE: Lo sacamos de la vista (100% hacia abajo) */
+    transform: translateY(100%); 
+    transition: transform 0.4s ease-out; /* Transición para el deslizamiento */
 }
 
-.title-container img {
-    max-width: 100%;
-    height: auto;
+.card-overlay h4 {
+    color: #ffd700;
+    margin-bottom: 10px;
 }
 
+.card-overlay p {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.overlay-button {
+    background-color: #ffd700;
+    color: #333;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.overlay-button:hover {
+    background-color: #fff;
+}
+
+/* 📌 CLAVE: Al hacer hover en .card, lo deslizamos a su posición (0) */
+.card:hover .card-overlay {
+    transform: translateY(0);
+}
+
+/* --- MEDIA QUERIES --- */
 @media (max-width: 768px) {
     .card {
         width: calc(50% - 30px);

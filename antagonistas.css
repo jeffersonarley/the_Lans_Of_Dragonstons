@@ -1,11 +1,18 @@
-/* General Reset and Body Setup */
-body {
-    font-family: Arial, sans-serif;
-    background-color: hsl(0, 48%, 42%);
-    margin: 0;
+ /* 📌 Añadido para prevenir que el padding y border rompan el layout (BOX-SIZING) */
+* {
+    box-sizing: border-box;
 }
 
-/* --- Header Styling (Kept mostly fixed) --- */
+body {
+    /* Fondo de Dark Souls restaurado para Villanos */
+    background-image: url('https://s1.1zoom.me/b5050/674/Knight_Dark_Souls_III_Armor_Swords_536494_1920x1080.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
 .main-header {
     width: 100%;
     position: sticky; 
@@ -46,13 +53,32 @@ body {
     font-weight: bold;
     font-size: 1.1rem;
     padding: 10px 60px;
-    background-image: url('img/casita.png'); /* Assumes this path is correct */
+    background-image: url('img/casita.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 5px;
     position: relative;
     transition: transform 0.3s ease;
+}
+
+/* 🚀 CORRECCIONES DE ESPACIO */
+.her {
+    margin: 0; /* Eliminado el margen excesivo (antes 50px) */
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%;
+}
+
+.her img {
+    max-width: 800px;
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    margin: 0; /* Eliminado el margen residual (antes 4px) */
+    display: block; /* Eliminado el espacio residual de la imagen */
 }
 
 .nav-link:hover {
@@ -73,30 +99,23 @@ body {
 }
 
 .shield {
-    background-image: url('img/stark.png'); /* Assumes this path is correct */
+    background-image: url('img/stark.png');
 }
 
 .dragon {
-    background-image: url('img/lanister.png'); /* Assumes this path is correct */
+    background-image: url('img/lanister.png');
 }
 
 .home-button i {
     color: #ffd700;
 }
 
-/* --- MODIFICATIONS FOR TEXT OVER IMAGE ---
-    
-    1. Set .fond to position: relative to contain the absolutely positioned text.
-    2. Set a higher z-index for the text block.
-    3. Center the text block over the image.
-*/
-
-/* --- Full-Width Image Container Styling --- */
 .fond {
     width: 100%;
     margin: 0;
     padding: 0;
     position: relative; 
+    min-height: 250px;
 }
 
 .fond img {
@@ -104,146 +123,143 @@ body {
     height: 500px;
     object-fit: cover; 
     display: block; 
-    
-    /* === CAMBIOS PARA LA SOMBRA INTENSA === */
-    filter: brightness(0.7); /* Oscurece un poco la imagen base */
-    box-shadow: 
-        /* Sombra negra grande y extendida para un efecto dramático */
-        0 0 100px 80px rgba(0, 0, 0, 0.9) inset, 
-        /* Sombra más enfocada en los bordes para un efecto de viñeta */
-        0 0 50px 30px rgba(0, 0, 0, 0.8) inset;
 }
-/* --- Medieval Text Styling (The Text Layer) --- */
-.medieval-text {
-    font-family: 'Uncial Antiqua', cursive; 
-    font-size: 1.5rem;
-    line-height: 1.6;
-    color: #292323c0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-    background-image: url('img/parchment-background.png');
-    background-size: cover;
-    padding: 20px; /* Increased padding for visibility */
-    border-radius: 10px;
-    max-width: 600px;
-    text-align: center; /* Center the text inside the block */
-    
-    /* KEY CHANGE: Positioning the text OVER the image */
-    position: absolute;
-    top: 50%; /* Start 50% from the top of the image */
-    left: 50%; /* Start 50% from the left of the image */
-    transform: translate(-50%, -50%); /* Move back by half its own width/height to center it perfectly */
-    z-index: 50; /* Ensure it is above the image (z-index of 1 is usually enough) */
-    margin: 0; /* Remove unnecessary margin */
-}
+/* Estilos medieval-text omitidos por brevedad, asumiendo que no se usan aquí */
 
-.medieval-text_title{
-     font-family: 'Uncial Antiqua', cursive; 
-    font-size: 1.5rem;
-    line-height: 1.6;
-    color: #141414c0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-    background-image: url('img/parchment-background.png');
-    background-size: cover;
-    padding: 20px; /* Increased padding for visibility */
-    border-radius: 10px;
-    max-width: 600px;
-    text-align: center; /* Center the text inside the block */
-    
-    /* KEY CHANGE: Positioning the text OVER the image */
-    position: absolute;
-    top: 30%; /* Start 50% from the top of the image */
-    left: 50%; /* Start 50% from the left of the image */
-    transform: translate(-50%, -50%); /* Move back by half its own width/height to center it perfectly */
-    z-index: 50; /* Ensure it is above the image (z-index of 1 is usually enough) */
-    margin: 0;  
-}
-
-/* --- Gallery Container Styling (Below the image/text block) --- */
+/* 🚀 CORRECCIONES DE ESPACIO */
 .gallery-container {
-    margin: 20px auto; 
-    
+    margin: 0 auto; /* Eliminado el margen superior (antes 20px) */
     display: flex;
     flex-wrap: wrap; 
     gap: 60px; 
     justify-content: center; 
     max-width: 1200px; 
-    padding: 20px; 
-    margin-top: 70px;
+    /* Eliminado el padding superior (antes 20px) */
+    padding: 0 20px 20px 20px; 
 }
 
-/* --- Card Styling (Kept original logic) --- */
+/* --- ESTILOS PARA LAS CARDS (MODIFICADO para Hover) --- */
 .card {
-    background-color: #c5aeae;
+    background-color: #333; 
     border-radius: 10px;
-    /* Changed box-shadow color to be more visible on the dark background */
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); 
+    border: 1px solid #c5aeae; 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5), 0 0 5px rgba(255, 255, 255, 0.1); 
+    
+    /* 📌 CLAVE: Posicionamiento relativo para el overlay */
+    position: relative; 
+    
     overflow: hidden; 
-    transition: transform 0.3s ease-in-out;
-    width: 250px; 
+    transition: all 0.4s ease-in-out; 
+    width: 250px; /* Mantiene 4 tarjetas por fila en escritorio */
     text-align: center;
     cursor: pointer;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px); 
+    box-shadow: 
+        0 12px 25px rgba(0, 0, 0, 0.7), 
+        0 0 20px #ffd700; 
+}
+
+/* Oculta el título normal cuando el overlay aparece */
+.card:hover h3 {
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .card img {
     width: 100%;
     height: 200px;
     object-fit: cover; 
+    filter: brightness(0.9) contrast(1.1);
+    transition: filter 0.4s ease;
+}
+
+.card:hover img {
+    filter: brightness(1) contrast(1);
 }
 
 .card h3 {
     margin: 15px 0;
-    color: #333;
-    font-size: 1em;
-}
-
-
-/* --- Other Elements (Cleaned up) --- */
-/* This block is usually for an external title image. 
-   If it contains the text you want over the image, you should use the .medieval-text styling.
-   If it's a separate title, its margin is reduced to keep it clean. */
-.title-container {
-    margin-top: 20px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.title-container img {
-    max-width: 100%;
-    height: auto;
-}
-.medieval-button-hero-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: #fff;
+    color: #ffd700; 
+    font-size: 1.1em;
     font-weight: bold;
-    font-size: 1.1rem;
-    padding: 10px 20px;
-    background-image: url('img/casita.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 5px;
-    position: relative;
-    transition: transform 0.3s ease;
-    margin-left: 20px; /* Space between buttons */
+}
+/* ---------------------------------------------------- */
+
+
+/* 📌 NUEVOS ESTILOS PARA EL OVERLAY (Efecto Deslizante) */
+.card-overlay {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo más oscuro para el texto */
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    /* 📌 CLAVE: Lo sacamos de la vista (100% hacia abajo) */
+    transform: translateY(100%); 
+    transition: transform 0.4s ease-out; /* Transición para el deslizamiento */
 }
 
-/* --- Responsive Styles (Kept as is) --- */
+.card-overlay h4 {
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.card-overlay p {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.overlay-button {
+    background-color: #ffd700;
+    color: #333;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.overlay-button:hover {
+    background-color: #fff;
+}
+
+/* 📌 CLAVE: Al hacer hover en .card, lo deslizamos a su posición (0) */
+.card:hover .card-overlay {
+    transform: translateY(0);
+}
+
+/* --- MEDIA QUERIES --- */
 @media (max-width: 768px) {
     .card {
-        width: calc(50% - 10px); 
+        width: calc(50% - 30px); /* Esto hace que quepan 2 tarjetas por fila en tablet */
     }
 }
 
 @media (max-width: 480px) {
     .card {
-        width: 100%;
+        width: 100%; /* Esto hace que quepa 1 tarjeta por fila en móvil */
+    }
+    
+    .nav-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-link {
+        padding: 10px 20px;
     }
 }
